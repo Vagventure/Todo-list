@@ -14,12 +14,12 @@ const Tasks = () => {
 
   useEffect(() => {
     let todoString = localStorage.getItem("todos")
-    if(todoString){
-      let todos = JSON.parse(localStorage.getItem("todos")) 
+    if (todoString) {
+      let todos = JSON.parse(localStorage.getItem("todos"))
       setTodos(todos)
     }
   }, [])
-  
+
 
   const saveToLS = (params) => {
     localStorage.setItem("todos", JSON.stringify(todos))
@@ -53,7 +53,7 @@ const Tasks = () => {
   const toggleFinished = (e) => {
     setshowFinished(!showFinished)
   }
-  
+
 
   const handleDelete = (e, id) => {
     let NewTodos = todos.filter(item => {
@@ -78,16 +78,16 @@ const Tasks = () => {
   return (
     <div className='mt-4 px-3 min-w-10/12 h-[40%]'>
       <div className="md:space-y-1.5">
-      <h1 className='text-[22px] md:text-2xl text-center font-bold '>Manage your todos at one place</h1>
-      <h3 className='mt-1 md:text-lg font-bold '>Add a Todo</h3>
-      <div className='p-4 flex justify-between'>
-        <input onChange={handleChange} className='bg-white min-w-5/6 rounded-4xl p-1 md:p-3' type='text' value={todo} ></input>
-        <button onClick={handleAdd} className='p-1 w-16 rounded-4xl bg-violet-500 text-white font-bold cursor-pointer'>Add</button>
-      </div>
-      <hr></hr>
-      <div className="flex space-x-1.5">
-      <input onChange={toggleFinished} type='checkbox' checked={showFinished}></input><p>Show Finished</p>
-      </div>
+        <h1 className='text-[22px] md:text-2xl text-center font-bold '>Manage your todos at one place</h1>
+        <h3 className='mt-1 md:text-lg font-bold '>Add a Todo</h3>
+        <div className='p-4 flex justify-between'>
+          <input onChange={handleChange} className='bg-white min-w-5/6 rounded-4xl p-1 md:p-3' type='text' value={todo} ></input>
+          <button onClick={handleAdd} className='p-1 w-16 rounded-4xl bg-violet-500 text-white font-bold cursor-pointer'>Add</button>
+        </div>
+        <hr></hr>
+        <div className="flex space-x-1.5">
+          <input onChange={toggleFinished} type='checkbox' checked={showFinished}></input><p>Show Finished</p>
+        </div>
       </div>
       <h3 className='md:text-2xl font-bold'>Your Todos</h3>
       <div className="todos space-y-2 w-full">
